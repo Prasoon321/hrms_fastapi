@@ -1,10 +1,9 @@
 import os
-from typing import TYPE_CHECKING, Any
+from typing import  Any
 from motor.motor_asyncio import AsyncIOMotorClient
 from dotenv import load_dotenv
 
-if TYPE_CHECKING:
-    from motor.motor_asyncio import AsyncIOMotorDatabase
+
 
 load_dotenv()
 
@@ -45,7 +44,7 @@ async def close_db() -> None:
         print("✓ Disconnected from MongoDB")
 
 
-def get_db() -> "AsyncIOMotorDatabase":
+def get_db() -> "Any":
     """Get database instance (raises if not connected)."""
     if db is None:
         raise RuntimeError("Database not connected. Call connect_db() first.")

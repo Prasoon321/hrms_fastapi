@@ -14,7 +14,10 @@ app = FastAPI(
 # Add CORS middleware to allow requests from frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with specific frontend URL
+    allow_origins=[
+        "http://localhost:3000",  # Local development
+        "https://hrms-frontend-five-lyart.vercel.app",  # Production frontend
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
